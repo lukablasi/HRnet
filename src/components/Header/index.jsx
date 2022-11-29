@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { useState, useEffect, useRef } from "react";
 
 const StyledHeader = styled.div`
     text-align: center;
