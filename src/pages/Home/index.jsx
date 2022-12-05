@@ -19,7 +19,7 @@ const StyledLabel = styled.label`
     flex-direction: column;
     width: 180px;
     padding: 10px;
-    margin-left: 15%;
+    margin: auto;
 `
 const ButtonContainer = styled.div`
     display: flex;
