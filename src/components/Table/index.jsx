@@ -70,6 +70,25 @@ function Table(props) {
   useEffect(() => {
     sortBy();
   }, [sortValue, sortOrder]);
+  useEffect(() => {
+    filterData()
+  }, [props.searchValue])
+  function filterData() {
+    const filteredData = employees.emplyeeList.filter(employee => {
+      return (
+        employee.firstName.includes(props.searchValue) ||
+        employee.lastName.includes(props.searchValue) ||
+        employee.startDate.includes(props.searchValue) ||
+        employee.department.includes(props.searchValue) ||
+        employee.dateOfBirth.includes(props.searchValue) ||
+        employee.address.street.includes(props.searchValue) ||
+        employee.address.city.includes(props.searchValue) ||
+        employee.address.state.includes(props.searchValue) ||
+        employee.address.zipCode.includes(props.searchValue)
+      )
+    })
+    setData(filteredData)
+  }
   function sortBy() {
     if(sortOrder === true) {
     if (sortValue === 'firstName'){
@@ -132,7 +151,6 @@ function Table(props) {
     }
 
 };
-    console.log(sortOrder)
   }
   return (
     <div>
@@ -189,6 +207,7 @@ function Table(props) {
         <tbody>
           {data
             .slice(tablePage, tablePage + props.recordLimit)
+
             .map((employee, index) => (
               <StyledRow index={index} key={index}>
                 <td>{employee.firstName}</td>
@@ -201,21 +220,22 @@ function Table(props) {
                 <td>{employee.address.state}</td>
                 <td>{employee.address.zipCode}</td>
               </StyledRow>
+              
             ))}
         </tbody>
       </StyledTable>
       <TableFooter>
         <div>
-          Showing {employees.emplyeeList.length !== 0 ? 1 + tablePage : 0}
-          to{" "}
-          {employees.emplyeeList.length < props.recordLimit
-            ? employees.emplyeeList.length
-            : Math.floor(employees.emplyeeList.length / props.recordLimit) ==
+          Showing {data.length !== 0 ? 1 + tablePage : 0}
+          {" "}to{" "}
+          {data.length < props.recordLimit
+            ? data.length
+            : Math.floor(data.length / props.recordLimit) ==
               tablePage / props.recordLimit
-            ? employees.emplyeeList.length
+            ? data.length
             : Number(tablePage) + Number(props.recordLimit)}{" "}
           of
-          {employees.emplyeeList.length} entries
+          {data.length} entries
         </div>
         <TableButtonsContainer>
           <TableButton onClick={previousPage}>Previous</TableButton>

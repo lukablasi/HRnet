@@ -26,8 +26,7 @@ function EmployeeList() {
 
     const limitValues = [10, 25, 50, 100]
     const [selectedLimit, setSelectedLimit] = useState(limitValues[0])
-
-
+    const [query, setQuery] = useState('')
     return (
         <div>
             <Header />
@@ -35,9 +34,9 @@ function EmployeeList() {
                 <div>Show <RecordLimit onChange={(e) => setSelectedLimit(e.target.value)} defaultValue={selectedLimit}>
                     {limitValues.map((option, index) => (<option key={index}>{option}</option>))}
                     </RecordLimit> entries</div>
-                <div>Search: <input type='text'></input></div>
+                <div>Search: <input autoFocus="autoFocus" type='text' onChange={e => setQuery(e.target.value)} value={query}></input></div>
             </FilterMenu>
-            <Table recordLimit={selectedLimit} />
+            <Table recordLimit={selectedLimit} searchValue={query} />
             
             <HomeLinkContainer>
                 <HomeLink to='/'>Home</HomeLink>
