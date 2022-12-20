@@ -5,6 +5,8 @@ import Header from './../../components/Header'
 import states from './../../data/states'
 import { useSelector, useDispatch } from 'react-redux';
 import { createEmployee } from '../../features/employeesSlice';
+import { changeIsVisible } from '../../features/modalboxSlice';
+import ModalBox from '../../components/ModalBox'
 
 const StyledH2 = styled.h2`
     text-align: center;
@@ -36,6 +38,8 @@ const StyledButton = styled.button`
 `
 
 function Home() { 
+    const isVisible = useSelector((state) => state.modalBox)
+
     const firstName = useRef('')
     const lastName = useRef('')
     const dateOfBirth = useRef('')
@@ -65,7 +69,7 @@ function Home() {
             department: department.current.value
         }
         dispatch(createEmployee(formData))
-
+        dispatch(changeIsVisible(true))
     }
 
     return(
@@ -75,7 +79,7 @@ function Home() {
             <StyledForm action="#" id="create-employee">
 
                 <StyledLabel>First Name
-                    <input type="text" id="first-name" ref={firstName} />
+                    <input required type="text" id="first-name" ref={firstName} />
                 </StyledLabel>  
 
                 <StyledLabel>Last Name
@@ -113,7 +117,7 @@ function Home() {
                     
 
                     <StyledLabel>Zip Code
-                        <input id="zip-code" type="number" ref={zipCode} />
+                        <input id="zip-code" type="text" ref={zipCode} />
                     </StyledLabel>
                     
                 </fieldset>
@@ -130,7 +134,7 @@ function Home() {
             <ButtonContainer>
                 <StyledButton onClick={handleClick}>Save</StyledButton>
             </ButtonContainer>
-            
+            <ModalBox isVisible={isVisible.modalBox} />
         </div>
     )
 }

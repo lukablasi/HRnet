@@ -1,11 +1,12 @@
 import { CreateSliceOptions } from "@reduxjs/toolkit"
 import { createSlice } from "@reduxjs/toolkit"
+import employeedb from "../data/employeedb"
 
 
 export const employeesSlice = createSlice({
     name: 'employees',
     initialState: {
-        emplyeeList: []
+        emplyeeList: employeedb
     },
     reducers: {
         createEmployee: (state, action) => {
