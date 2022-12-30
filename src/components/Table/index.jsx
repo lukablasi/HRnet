@@ -154,7 +154,7 @@ function Table(props) {
   }
   return (
     <div>
-      <StyledTable>
+      <StyledTable data-testid='table'>
         <thead>
           <StyledHeaders>
             <th>
@@ -234,7 +234,7 @@ function Table(props) {
               tablePage / props.recordLimit
             ? data.length
             : Number(tablePage) + Number(props.recordLimit)}{" "}
-          of
+          of {" "}
           {data.length} entries
         </div>
         <TableButtonsContainer>

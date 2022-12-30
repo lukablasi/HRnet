@@ -6,7 +6,7 @@ import states from './../../data/states'
 import { useSelector, useDispatch } from 'react-redux';
 import { createEmployee } from '../../features/employeesSlice';
 import { changeIsVisible } from '../../features/modalboxSlice';
-import ModalBox from '../../components/ModalBox'
+import ModalBox from 'modalbox-milcz'
 
 const StyledH2 = styled.h2`
     text-align: center;
@@ -68,8 +68,12 @@ function Home() {
             
             department: department.current.value
         }
+        if (formData.firstName !== '' && formData.lastName !== '' && formData.dateOfBirth !== '' && formData.startDate !== '' && formData.address.street !== '' && formData.address.city !== '' && formData.address.state !== '' && formData.address.zipCode !== '' && formData.department !== '') {
         dispatch(createEmployee(formData))
         dispatch(changeIsVisible(true))
+        } else {
+            alert('Insert all credentials')
+        }
     }
 
     return(
@@ -79,7 +83,7 @@ function Home() {
             <StyledForm action="#" id="create-employee">
 
                 <StyledLabel>First Name
-                    <input required type="text" id="first-name" ref={firstName} />
+                    <input type="text" id="first-name" ref={firstName} />
                 </StyledLabel>  
 
                 <StyledLabel>Last Name
