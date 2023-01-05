@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
-import { useState, useEffect, useRef } from "react";
+import { useRef } from "react";
 import Header from './../../components/Header'
 import states from './../../data/states'
 import { useSelector, useDispatch } from 'react-redux';

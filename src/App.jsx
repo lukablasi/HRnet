@@ -3,9 +3,7 @@ import './App.css';
 import styled from "styled-components";
 import {
   createBrowserRouter,
-  RouterProvider,
-  Route,
-  Link,
+  RouterProvider
 } from "react-router-dom";
 
 import Home from './pages/Home'

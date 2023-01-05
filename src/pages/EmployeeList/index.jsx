@@ -1,7 +1,6 @@
 import React from "react";
 import Header from './../../components/Header'
 import styled from "styled-components";
-import { useSelector, useDispatch } from 'react-redux';
 import { useState, useEffect, useRef } from "react";
 import Table from '../../components/Table'
 import { Link } from "react-router-dom";

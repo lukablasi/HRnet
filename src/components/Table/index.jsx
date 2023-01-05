@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { useState, useEffect, useRef } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useState, useEffect} from "react";
+import { useSelector} from "react-redux";
 import { BiSortAlt2 } from "react-icons/bi";
 
 function Table(props) {
@@ -168,7 +168,7 @@ function Table(props) {
               </SortButton>
             </th>
             <th>
-              <SortButton onClick={() => (sortValue === 'startDate') ? setSortOrder(!sortOrder) : setSortValue("startDate")}>
+              <SortButton data-testid='date-sort-button' onClick={() => (sortValue === 'startDate') ? setSortOrder(!sortOrder) : setSortValue("startDate")}>
                 Start Date <BiSortAlt2 />
               </SortButton>
             </th>
