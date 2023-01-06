@@ -8,7 +8,7 @@ import Table from '../../components/Table'
 
 describe('renders employee list page', () => {
 
-    test('home page displays a header', () => {
+    test('renders the page', () => {
       const { getByText } = render(
         <Provider store={store}>
             <MemoryRouter>
