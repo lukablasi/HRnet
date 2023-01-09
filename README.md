@@ -8,7 +8,7 @@ Technologies used in the project:
 3. Redux
 4. Styled Components
 5. React Testing Library
-Additionally the app uses "modalbox-milcz" plugin created and saved beforeheand on NPM.
+6. Additionally the app uses "modalbox-milcz" plugin created and saved beforeheand on NPM.
 
 To run the project:
 1. Download the repo.
