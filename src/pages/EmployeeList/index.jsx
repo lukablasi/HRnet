@@ -1,7 +1,7 @@
 import React from "react";
 import Header from './../../components/Header'
 import styled from "styled-components";
-import { useState, useEffect, useRef } from "react";
+import { useState} from "react";
 import Table from '../../components/Table'
 import { Link } from "react-router-dom";
 
